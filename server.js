@@ -5,8 +5,18 @@ const cors = require("cors");
 require("dotenv").config(); 
 
 const app = express();
+
+// CORS configuration: Allow only requests from your frontend's domain
+const corsOptions = {
+  origin: 'https://mm-constructions.netlify.app', // Frontend URL on Netlify
+  methods: 'GET, POST', // Allow necessary HTTP methods
+  allowedHeaders: 'Content-Type', // Allow Content-Type header
+};
+
+// Enable CORS with the specified options
+app.use(cors(corsOptions));
+
 app.use(express.json()); // To parse JSON data
-app.use(cors()); // Allow cross-origin requests if necessary
 
 // Nodemailer setup
 const transporter = nodemailer.createTransport({
