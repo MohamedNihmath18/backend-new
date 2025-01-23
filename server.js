@@ -2,6 +2,7 @@
 const express = require("express");
 const nodemailer = require("nodemailer"); // For sending emails
 const cors = require("cors");
+require("dotenv").config(); 
 
 const app = express();
 app.use(express.json()); // To parse JSON data
@@ -11,8 +12,8 @@ app.use(cors()); // Allow cross-origin requests if necessary
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "mohamednihmath13@gmail.com", // Replace with your email
-    pass: "wizvstizxfvxbdbw", // Replace with your email password (or use OAuth)
+    user: process.env.EMAIL_USER,  // Replace with your email
+    pass: process.env.EMAIL_PASS, // Replace with your email password (or use OAuth)
   },
 });
 
