@@ -34,7 +34,7 @@ app.post("/api/contact", async (req, res) => {
   // Prepare email content
   const mailOptions = {
     from: email,
-    to: "mohamednihmath13@gmail.com", // Where the form data should be sent
+    to: "mmconstructionss@gmail.com", // Where the form data should be sent
     subject: `New message from ${name}`,
     text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
   };
